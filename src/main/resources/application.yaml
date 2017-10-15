@@ -1,3 +1,4 @@
+#默认的属性
 server:
   port: 9090
 spring:

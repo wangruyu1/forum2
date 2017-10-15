@@ -14,10 +14,6 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
-/**
- * @author wangruyu
- * @since 2017/10/15-16:58
- */
 @Configuration
 @MapperScan(basePackages = DataSourceConfiguration.MAPPER_LOCATION, sqlSessionFactoryRef = "sqlSessionFactory")
 public class DataSourceConfiguration {

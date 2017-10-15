@@ -10,10 +10,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-/**
- * @author wangruyu
- * @since 2017/10/15-13:17
- */
 @Service
 public class UserServiceImpl implements UserService, UserDetailsService {
     @Autowired
