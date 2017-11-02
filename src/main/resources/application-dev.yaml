@@ -1,1 +1,16 @@
 #开发环境
+#mybatis:
+#    type-aliases-package: com.leisure.forum.entity
+#    mapper-locations: classpath:mapper/*.xml
+
+mapper:
+    mappers:
+        - com.leisure.forum.mapper
+    not-empty: false
+    identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql

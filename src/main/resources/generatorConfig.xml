@@ -4,38 +4,38 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <context id="my" targetRuntime="MyBatis3">
-        <commentGenerator>
-            <property name="suppressDate" value="false"/>
-            <property name="suppressAllComments" value="true"/>
-        </commentGenerator>
+	<context id="Mysql" targetRuntime="MyBatis3Simple"
+		defaultModelType="flat">
+		<!-- <commentGenerator> -->
+		<!-- <property name="suppressDate" value="false" /> -->
+		<!-- <property name="suppressAllComments" value="true" /> -->
+		<!-- </commentGenerator> -->
+		<plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+			<property name="mappers" value="tk.mybatis.mapper.common.Mapper" />
+			<!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+			<property name="caseSensitive" value="true" />
+		</plugin>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/forum?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=true"
+			userId="root" password="" />
+		<!--entity生成 -->
+		<javaModelGenerator targetPackage="com.leisure.forum.entity"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!--sql语句文件 -->
+		<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!--mapper问价 -->
+		<javaClientGenerator targetPackage="com.leisure.forum.mapper"
+			targetProject="src/main/java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
 
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-        connectionURL="jdbc:mysql://localhost:3306/forum?useUnicode=true&amp;characterEncoding=utf8" userId="wangruyu"
-        password="wangruyu123"/>
-        <!--entity生成-->
-        <javaModelGenerator targetPackage="com.leisure.forum.entity"
-                            targetProject="src/main/java">
-            <property name="enableSubPackages" value="true"/>
-            <property name="trimStrings" value="true"/>
-        </javaModelGenerator>
-        <!--sql语句文件-->
-        <sqlMapGenerator targetPackage="mapper"
-                         targetProject="src/main/resources">
-            <property name="enableSubPackages" value="true"/>
-        </sqlMapGenerator>
-        <!--mapper问价-->
-        <javaClientGenerator targetPackage="com.leisure.forum.mapper"
-                             targetProject="src/main/java" type="XMLMAPPER">
-            <property name="enableSubPackages" value="true"/>
-        </javaClientGenerator>
-
-
-        <table tableName="user" domainObjectName="User"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-        </table>
-
-    </context>
+		<table tableName="test_table">
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+	</context>
 </generatorConfiguration>
