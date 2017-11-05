@@ -34,7 +34,22 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<table tableName="test_table">
+		<table tableName="role">
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		<table tableName="user_role_map">
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		<table tableName="menu">
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		<table tableName="role_menu_map">
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		<table tableName="topic">
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		<table tableName="topic_reply">
 			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
 		</table>
 	</context>

@@ -2,7 +2,6 @@ package com.leisure.forum.mapper;
 
 import com.leisure.forum.entity.User;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.security.core.userdetails.UserDetails;
 
 public interface UserMapper {
     int deleteByPrimaryKey(Long id);
@@ -17,5 +16,5 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    UserDetails queryByForumName(@Param("forumName") String username);
+    User queryByForumName(@Param("forumName") String username);
 }
