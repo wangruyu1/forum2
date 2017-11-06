@@ -17,7 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.leisure.forum.AppConstant;
+import com.leisure.forum.constant.AppConstant;
 import com.leisure.forum.entity.Menu;
 import com.leisure.forum.entity.Role;
 import com.leisure.forum.entity.RoleMenuMap;
@@ -87,7 +87,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		if (roles != null && roles.size() > 0) {
 			List<Long> ids = roles.stream().map(Role::getId).collect(Collectors.toList());
 			List<RoleMenuMap> roleMenuMaps = roleMenuMapService.queryMenusByRoleIds(ids);
-			List<Long> menuIds = roleMenuMaps.stream().map(RoleMenuMap::getMenuId).distinct().collect(Collectors.toList());
+			List<Long> menuIds = roleMenuMaps.stream().map(RoleMenuMap::getMenuId).distinct()
+					.collect(Collectors.toList());
 			menus = menuService.queryMenusByIds(menuIds);
 		}
 		formatMenus(menus);
@@ -142,5 +143,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 			return 0;
 		}
 
+	}
+
+	@Override
+	public List<Menu> queryMenusByUserName(String userName) throws ServiceException {
+		List<Role> roles = this.queryRolesByUserName(userName);
+		List<Menu> menus = this.queryMenusByRoles(roles);
+		return menus;
 	}
 }

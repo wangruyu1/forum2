@@ -8,7 +8,11 @@ import com.leisure.forum.exception.ServiceException;
 import java.util.List;
 
 public interface UserService {
-    boolean add(User user) throws ServiceException;
-    List<Role> queryRolesByUserName(String userName)throws ServiceException;
-    List<Menu> queryMenusByRoles(List<Role> roles) throws ServiceException;
+	boolean add(User user) throws ServiceException;
+
+	List<Role> queryRolesByUserName(String userName) throws ServiceException;
+
+	List<Menu> queryMenusByRoles(List<Role> roles) throws ServiceException;
+
+	List<Menu> queryMenusByUserName(String userName) throws ServiceException;
 }
