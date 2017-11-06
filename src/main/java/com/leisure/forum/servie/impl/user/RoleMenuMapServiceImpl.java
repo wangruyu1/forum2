@@ -5,6 +5,7 @@ import com.leisure.forum.exception.ServiceException;
 import com.leisure.forum.mapper.RoleMenuMapMapper;
 import com.leisure.forum.servie.user.RoleMenuMapService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * wangruyu
  * 2017/11/5 下午5:13
  */
+@Service
 public class RoleMenuMapServiceImpl implements RoleMenuMapService{
     @Autowired
     private RoleMenuMapMapper roleMenuMapMapper;

@@ -2,6 +2,8 @@ package com.leisure.forum;
 
 import com.leisure.forum.controller.user.UserController;
 import com.leisure.forum.entity.User;
+import com.leisure.forum.exception.ServiceException;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,7 @@ public class ForumApplicationTests {
 	private UserController userController;
 
 	@Test
-	public void contextLoads() {
+	public void contextLoads() throws ServiceException {
 		User user = new User();
 		user.setQq("12323@qq.com");
 		user.setForumName("wangruyu1");

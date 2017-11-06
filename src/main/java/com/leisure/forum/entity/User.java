@@ -6,6 +6,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.Transient;
+
 public class User implements UserDetails {
     private Long id;
 
@@ -18,6 +20,7 @@ public class User implements UserDetails {
     private Integer status;
 
     private String qq;
+    @Transient
     private String role;
     private List<GrantedAuthority> grantedAuthorities;
 
