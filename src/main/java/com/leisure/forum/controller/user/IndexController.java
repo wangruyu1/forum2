@@ -1,4 +1,4 @@
-package com.leisure.forum.user;
+package com.leisure.forum.controller.user;
 
 import java.util.List;
 
@@ -25,7 +25,6 @@ public class IndexController {
 	public String index() {
 		return gson.toJson(testTableMapper.selectAll());
 	}
-
 	@RequestMapping(value = { "/limit", "/limit/" }, method = RequestMethod.GET)
 	public String index2(@RequestParam(value = "page", defaultValue = "1") Integer page,
 			@RequestParam(value = "pageSize", defaultValue = "9999") Integer pageSize) {

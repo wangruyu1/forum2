@@ -1,6 +1,7 @@
 package com.leisure.forum.controller.user;
 
 import com.leisure.forum.entity.User;
+import com.leisure.forum.exception.ServiceException;
 import com.leisure.forum.servie.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public boolean addUser(@RequestParam("user") User user) {
+    public boolean addUser(@RequestParam("user") User user) throws ServiceException {
        return userService.add(user);
     }
 }
